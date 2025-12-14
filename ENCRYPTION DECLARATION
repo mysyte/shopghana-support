@@ -1,0 +1,21 @@
+ENCRYPTION DECLARATION FOR "Shop Ghana" (Bundle ID: com.shop.ghana)
+
+This app uses the following standard encryption:
+
+1. TRANSPORT ENCRYPTION:
+   - HTTPS/SSL/TLS (RFC 5246) for all network communications
+   - Uses Apple's built-in NSURLSession and security frameworks
+
+2. PAYMENT PROCESSING:
+   - Stripe SDK for payment processing
+   - Uses Stripe's standard encryption for card data
+   - No card data stored locally
+
+3. DATA STORAGE:
+   - AsyncStorage for local data (no encryption at rest)
+   - Firebase services with their standard encryption
+
+4. COMPLIANCE:
+   - ITSAppUsesNonExemptEncryption = NO in Info.plist
+   - No proprietary encryption algorithms
+   - No export-controlled encryption
