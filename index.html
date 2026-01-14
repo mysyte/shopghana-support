@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Ghana - Customer Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0a4a1e 0%, #0c6b2c 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .logo i {
+            color: #ffcc00;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .support-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .option-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 4px solid #0c6b2c;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .option-icon {
+            font-size: 2.2rem;
+            color: #0c6b2c;
+            margin-bottom: 15px;
+        }
+        
+        .option-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #0a4a1e;
+        }
+        
+        .contact-form-section {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: #0a4a1e;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            border-color: #0c6b2c;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(12, 107, 44, 0.1);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: linear-gradient(to right, #0c6b2c, #0a4a1e);
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .submit-btn:hover {
+            background: linear-gradient(to right, #0a4a1e, #083d19);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(10, 74, 30, 0.2);
+        }
+        
+        .confirmation-message {
+            display: none;
+            background: #e8f5e9;
+            border-radius: 8px;
+            padding: 25px;
+            margin-top: 25px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .confirmation-message h3 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .email-link {
+            color: #0c6b2c;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        
+        .email-link:hover {
+            text-decoration: underline;
+        }
+        
+        .urgency-note {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+            border-left: 4px solid #ffb300;
+        }
+        
+        @media (max-width: 768px) {
+            .support-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .contact-form-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shopping-cart"></i>
+                <h1>Shop Ghana</h1>
+            </div>
+            <p class="tagline">Your trusted online marketplace. We're here to help with any questions or concerns you may have.</p>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section class="support-options">
+            <div class="option-card">
+                <div class="option-icon">
+                    <i class="fas fa-cog"></i>
+                </div>
+                <h3 class="option-title">App Support</h3>
+                <p>Open the app and navigate to <strong>Settings → Support & Safety</strong> to report technical issues, fraud, or suspicious content.</p>
+            </div>
+            
+            <div class="option-card">
+                <div class="option-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="option-title">In-App Support Bot</h3>
+                <p>Ask our in-app support bot for immediate answers to frequently asked questions and quick troubleshooting.</p>
+            </div>
+            
+            <div class="option-card">
+                <div class="option-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="option-title">Direct Email Support</h3>
+                <p>Email us directly at <a href="mailto:support@shopghana.com" class="email-link">support@shopghana.com</a> for personalized assistance with your concerns.</p>
+            </div>
+        </section>
+        
+        <div class="urgency-note">
+            <p><strong>Important:</strong> If you are unable to access the app, please email us directly at <a href="mailto:support@shopghana.com" class="email-link">support@shopghana.com</a> and we will assist you promptly.</p>
+        </div>
+        
+        <section class="contact-form-section">
+            <h2 class="section-title">Send a Message to Our Support Team</h2>
+            <p>Complete the form below and we'll respond to your inquiry as soon as possible.</p>
+            
+            <form id="supportForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required placeholder="Enter your email address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" required>
+                        <option value="" disabled selected>Select an issue category</option>
+                        <option value="technical">Technical Issue</option>
+                        <option value="account">Account Problem</option>
+                        <option value="fraud">Fraud or Suspicious Content</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" required placeholder="Please describe your issue in detail. Provide relevant order numbers or screenshots if applicable."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> Send Message
+                </button>
+            </form>
+            
+            <div id="confirmationMessage" class="confirmation-message">
+                <h3><i class="fas fa-check-circle"></i> Message Successfully Submitted</h3>
+                <p>Your message has been submitted to the Shop Ghana support team. Please allow up to 24 hours for a response. We appreciate your patience and will address your inquiry as soon as possible.</p>
+                <p>For urgent matters, you can also contact us directly at <a href="mailto:support@shopghana.com" class="email-link">support@shopghana.com</a>.</p>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2025 Shop Ghana. All rights reserved.</p>
+        </footer>
+    </main>
+    
+    <script>
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            document.getElementById('confirmationMessage').style.display = 'block';
+            
+            document.getElementById('confirmationMessage').scrollIntoView({ behavior: 'smooth' });
+            
+            document.getElementById('supportForm').reset();
+            
+            console.log('Support request submitted:');
+            console.log('Name:', name);
+            console.log('Email:', email);
+            console.log('Subject:', subject);
+            console.log('Message:', message);
+        });
+    </script>
+</body>
+</html>
